@@ -1,0 +1,99 @@
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$python\
+$lua\
+$nodejs\
+$golang\
+$haskell\
+$rust\
+$ruby\
+$aws\
+$docker_context\
+$jobs\
+$cmd_duration\
+$line_break\
+$character"""
+
+
+
+add_newline = true
+fill.symbol = " "
+
+[character]
+success_symbol = '[\$](bold yellow)'
+error_symbol = '[\$](bold red)'
+
+[directory]
+truncation_length = 2
+truncation_symbol = '…/'
+truncate_to_repo = true
+
+[git_branch]
+symbol = ' '
+
+[git_status]
+style = 'fg:green'
+# format = '([$all_status$ahead_behind]($style) )'
+
+
+[python]
+symbol = '🐍 '
+format = ' [$symbol$version]($style) '
+pyenv_version_name = true
+pyenv_prefix = ''
+
+[lua]
+symbol = ' '
+
+[nodejs]
+style = 'blue'
+format = ' [$symbol$version]($style) '
+
+[golang]
+style = 'blue'
+symbol = ' '
+
+[haskell]
+style = 'blue'
+symbol = ' '
+
+[rust]
+style = 'orange'
+symbol = ' '
+
+[ruby]
+style = 'blue'
+symbol = ' '
+
+[package]
+symbol = '󰏗 '
+
+[aws]
+symbol = ' '
+style = 'yellow'
+format = '[$symbol($profile )(\[$duration\] )]($style)'
+
+[gcloud]
+symbol = ' '
+style = 'blue'
+
+[docker_context]
+symbol = '🐳 '
+# style = 'fg:#06969A'
+format = '[$symbol]($style) $path'
+# detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
+detect_extensions = ['Dockerfile']
+
+[jobs]
+symbol = ' '
+style = 'red'
+number_threshold = 1
+format = '[$symbol]($style)'
+
+[cmd_duration]
+min_time = 0
+format = '⌛️ [$duration]($style)'
+
